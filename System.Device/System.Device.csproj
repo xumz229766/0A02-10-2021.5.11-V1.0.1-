@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EEC0ED61-1D8A-4160-A45A-00268172BEC9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Device</RootNamespace>
+    <AssemblyName>System.Device</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="libnodave.net, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SimensPLC\libnodave.net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MitsubishiPLC\CommonEnum.cs" />
+    <Compile Include="MitsubishiPLC\McCommand.cs" />
+    <Compile Include="MitsubishiPLC\McProtocolApp.cs" />
+    <Compile Include="MitsubishiPLC\McProtocolBinary.cs" />
+    <Compile Include="MitsubishiPLC\PlcDeviceTypeExtersions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialPort\Comm.cs" />
+    <Compile Include="SerialPort\GT71A.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\DM100Q.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\Gryphon_GM4400.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\frmSerialPort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SerialPort\frmSerialPort.designer.cs">
+      <DependentUpon>frmSerialPort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SerialPort\Gryphon_GFS4400.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\GTA2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\MT400A.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\HIOKI3561.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SerialPort\DM50S.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SimensPLC\BitUtl.cs" />
+    <Compile Include="SimensPLC\frmSimensPLC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimensPLC\frmSimensPLC.Designer.cs">
+      <DependentUpon>frmSimensPLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimensPLC\IOBuffer.cs" />
+    <Compile Include="SimensPLC\SimesnPLC.cs" />
+    <Compile Include="ZebraPrinter\RawPrinterHelper.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="SerialPort\frmSerialPort.resx">
+      <DependentUpon>frmSerialPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimensPLC\frmSimensPLC.resx">
+      <DependentUpon>frmSimensPLC.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Framework\System.Framework.csproj">
+      <Project>{0b820a86-52f7-4453-8334-5ef6b726e646}</Project>
+      <Name>System.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.ToolKit\System.ToolKit.csproj">
+      <Project>{EF59B053-6939-4338-BB28-6CC2030BC0E1}</Project>
+      <Name>System.ToolKit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SimensPLC\libnodave.dll" />
+    <Content Include="SimensPLC\libnodave.net.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

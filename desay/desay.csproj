@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5172580D-1E09-47F4-A185-29C8E425AF11}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>desay</RootNamespace>
+    <AssemblyName>desay</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MSMQ, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MSMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlarmsMessage.cs" />
+    <Compile Include="Data\AxisParameter.cs" />
+    <Compile Include="Data\Delay.cs" />
+    <Compile Include="Data\Config.cs" />
+    <Compile Include="claMQ.cs" />
+    <Compile Include="Flow\Buffer.cs" />
+    <Compile Include="Flow\Feeder.cs" />
+    <Compile Include="Flow\LeftC.cs" />
+    <Compile Include="Flow\LeftCut1.cs" />
+    <Compile Include="Flow\LeftCut2.cs" />
+    <Compile Include="Flow\MiddleC.cs" />
+    <Compile Include="Flow\Move.cs" />
+    <Compile Include="Flow\Platform.cs" />
+    <Compile Include="Flow\RightC.cs" />
+    <Compile Include="Flow\RightCut1.cs" />
+    <Compile Include="Flow\RightCut2.cs" />
+    <Compile Include="Flow\Splice.cs" />
+    <Compile Include="Flow\Storing.cs" />
+    <Compile Include="Form\frmIOmonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmIOmonitor.designer.cs">
+      <DependentUpon>frmIOmonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmTrayCalib.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTrayCalib.designer.cs">
+      <DependentUpon>frmTrayCalib.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MLayerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MLayerView.Designer.cs">
+      <DependentUpon>MLayerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Position1DView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Position1DView.Designer.cs">
+      <DependentUpon>Position1DView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Position2DView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Position2DView.Designer.cs">
+      <DependentUpon>Position2DView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Position3DView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Position3DView.Designer.cs">
+      <DependentUpon>Position3DView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PositionDefaultView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PositionDefaultView.Designer.cs">
+      <DependentUpon>PositionDefaultView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmManualOperate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmManualOperate.designer.cs">
+      <DependentUpon>frmManualOperate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmTeach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTeach.designer.cs">
+      <DependentUpon>frmTeach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmParameter.Designer.cs">
+      <DependentUpon>frmParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmPasswordChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmPasswordChange.designer.cs">
+      <DependentUpon>frmPasswordChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmRunSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmRunSetting.Designer.cs">
+      <DependentUpon>frmRunSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmStarting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmStarting.designer.cs">
+      <DependentUpon>frmStarting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="IOPoints.cs" />
+    <Compile Include="View\IOSignView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\IOSignView.designer.cs">
+      <DependentUpon>IOSignView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Marking.cs" />
+    <Compile Include="Plate.cs" />
+    <Compile Include="Data\Position.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\frmIOmonitor.resx">
+      <DependentUpon>frmIOmonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTrayCalib.resx">
+      <DependentUpon>frmTrayCalib.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MLayerView.resx">
+      <DependentUpon>MLayerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Position1DView.resx">
+      <DependentUpon>Position1DView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Position2DView.resx">
+      <DependentUpon>Position2DView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Position3DView.resx">
+      <DependentUpon>Position3DView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PositionDefaultView.resx">
+      <DependentUpon>PositionDefaultView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmManualOperate.resx">
+      <DependentUpon>frmManualOperate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTeach.resx">
+      <DependentUpon>frmTeach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmParameter.resx">
+      <DependentUpon>frmParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmPasswordChange.resx">
+      <DependentUpon>frmPasswordChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmRunSetting.resx">
+      <DependentUpon>frmRunSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmStarting.resx">
+      <DependentUpon>frmStarting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\IOSignView.resx">
+      <DependentUpon>IOSignView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hh01.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hh02.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Device\System.Device.csproj">
+      <Project>{eec0ed61-1d8a-4160-a45a-00268172bec9}</Project>
+      <Name>System.Device</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Framework\System.Framework.csproj">
+      <Project>{0B820A86-52F7-4453-8334-5EF6B726E646}</Project>
+      <Name>System.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Motion\Enginee\Motion.Enginee.csproj">
+      <Project>{bf2fb01d-3d28-42f1-907e-7de72433784f}</Project>
+      <Name>Motion.Enginee</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Motion\Interfaces\Motion.Interfaces.csproj">
+      <Project>{e87bbf52-f612-40bb-ad3d-d6a20fd635b1}</Project>
+      <Name>Motion.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Motion\LSAps\Motion.LSAps.csproj">
+      <Project>{698d0db9-f8fe-4ed4-8f6b-98dc648d5284}</Project>
+      <Name>Motion.LSAps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Motion\Tray\System.Tray.csproj">
+      <Project>{e1772e47-415b-44e2-8e2f-3cc4b5f2a039}</Project>
+      <Name>System.Tray</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.ToolKit\System.ToolKit.csproj">
+      <Project>{ef59b053-6939-4338-bb28-6cc2030bc0e1}</Project>
+      <Name>System.ToolKit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_arrow_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_arrow_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_balloon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_barcode_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_gmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_mes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_playback_pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_playback_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_playback_play2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_playback_repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_playback_repeat1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_playback_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_playback_stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_plug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_reload1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_action_users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rfid.net.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yahe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+    <None Include="Resources\LedNone.jpg" />
+    <None Include="Resources\Zup.png" />
+    <None Include="Resources\Zdown.png" />
+    <None Include="Resources\Yrear.png" />
+    <None Include="Resources\Yfront.png" />
+    <None Include="Resources\XXright.png" />
+    <None Include="Resources\XXleft.png" />
+    <None Include="Resources\Xright.png" />
+    <None Include="Resources\Xleft.png" />
+    <None Include="Resources\G50pic.jpg" />
+    <None Include="Resources\Loading.png" />
+    <None Include="Resources\PIC2.png" />
+    <None Include="Resources\LedRed.jpg" />
+    <None Include="Resources\LedGreen.jpg" />
+    <None Include="Resources\logo.ico" />
+    <None Include="Resources\LedYellow.ico" />
+    <None Include="Resources\LedRed.ico" />
+    <None Include="Resources\LedNone.ico" />
+    <None Include="Resources\LedGreen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
